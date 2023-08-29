@@ -69,7 +69,7 @@ var multiSel = function( od ){
 			a.sort();
 			return a ;
 		}
-	};
+	}; // get_distinct_attrib_vals()
 	
 	var empty_all_selects_that_follows = function(j){
 		for( var k = 0 ; k < od.selects.length ; k++ ){
@@ -78,7 +78,9 @@ var multiSel = function( od ){
 				el.options.length = 0;
 			}
 		}
-	};
+	}; // empty_all_selects_that_follows()
+
+
 	
 	var load_values_into_next_select = function( j ){
 		var fiar = [] ;
@@ -120,8 +122,10 @@ var multiSel = function( od ){
 				}
 				nsel.selectedIndex = -1 ;
 			}
-		}
-	};
+		} 
+	}; // load_values_into_next_select()
+
+
 	
 	for( var i = 0 ; i < od.selects.length ; i++ ){
 		_$( od.selects[i]['id'] ).tsi = i ;
@@ -138,52 +142,56 @@ var multiSel = function( od ){
 	for( var l=0; l< matches.length ; l++ ){
 		firstsel.options[ firstsel.options.length ] = new Option( matches[l] , matches[l] );
 	}
+
 	firstsel.selectedIndex = -1 ;
 	//load_values_into_next_select(0);
-};
+
+}; // end of multiSel()
+
+
 
 
 var sel_data = [
 	{
 		'country' : 'India' , 
-		'state' : 'ap' ,
-		'city' : 'hyderabad' ,
+		'state' : 'Telangana' ,
+		'city' : 'Hyderabad' ,
 		'key' : '12'
 	},
 	{
 		'country' : 'India' , 
-		'state' : 'ap' ,
-		'city' : 'secunderabad',
+		'state' : 'Telangana' ,
+		'city' : 'Secunderabad',
 		'key' : '13'
 	},
 	{
 		'country' : 'India' , 
-		'state' : 'tn' ,
-		'city' : 'chennai',
+		'state' : 'TamilNadu' ,
+		'city' : 'Chennai',
 		'key' : '14'
 	},
 	{
 		'country' : 'India' , 
-		'state' : 'ap' ,
-		'city' : 'vizag',
+		'state' : 'AndhraPradesh' ,
+		'city' : 'Vizag',
 		'key' : '15'
 	},
 	{
-		'country' : 'India' , 
+		'country' : 'United States' , 
 		'state' : 'California' ,
-		'city' : 'Indian LosAngeles',
+		'city' : 'Los Angeles',
 		'key' : '16'
 	},
 	{
-		'country' : 'America' , 
+		'country' : 'United States' , 
 		'state' : 'California' ,
-		'city' : 'LosAngeles',
+		'city' : 'San Diego',
 		'key' : '17'
 	},
 	{
-		'country' : 'America' , 
+		'country' : 'United States' , 
 		'state' : 'California' ,
-		'city' : 'SanFrancisco',
+		'city' : 'San Francisco',
 		'key' : '18'
 	}
 ];
@@ -203,8 +211,27 @@ window.onload = function(){
 
 </script>
 
-Country : <select id='sel_countries'></select> <BR>
+
+
+
+<style type="text/css">
+	div.dp{
+		padding: 10px ;
+		font-family: tahoma, verdana, arial;
+	}	
+</style>
+
+<div class='dp'>
+	Country : <select id='sel_countries'></select>	
+</div>
+
+<div class='dp'>
+	State : <select id='sel_states'></select>
+</div>
+
+<div class='dp'>
+	City : <select id='sel_cities'></select>	
+</div>	
+
 	
-State : <select id='sel_states'></select> <BR>
-	
-City : <select id='sel_cities'></select>
+
